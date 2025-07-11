@@ -42,7 +42,12 @@ npm install
 
 3. **Configurar variables de entorno**
 
-Copia el archivo de ejemplo:
+**En Windows:**
+```bash
+copy .env.example .env
+```
+
+**En Linux/macOS:**
 ```bash
 cp .env.example .env
 ```
