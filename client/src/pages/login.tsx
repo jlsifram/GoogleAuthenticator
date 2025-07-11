@@ -115,16 +115,27 @@ export default function Login() {
               </Button>
             </div>
 
+            {/* Demo Link */}
+            <div className="text-center mb-4">
+              <Button
+                onClick={() => setLocation("/demo")}
+                variant="link"
+                className="text-sm text-google-brand hover:underline"
+              >
+                Ver Demo del Sistema →
+              </Button>
+            </div>
+
             {/* Footer */}
             <div className="text-center">
               <p className="text-xs text-text-secondary">
-                By continuing, you agree to our{" "}
+                Al continuar, aceptas nuestros{" "}
                 <a href="#" className="text-google-brand hover:underline">
-                  Terms of Service
+                  Términos de Servicio
                 </a>{" "}
-                and{" "}
+                y{" "}
                 <a href="#" className="text-google-brand hover:underline">
-                  Privacy Policy
+                  Política de Privacidad
                 </a>
               </p>
             </div>
