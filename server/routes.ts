@@ -43,7 +43,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID || process.env.GOOGLE_OAUTH_CLIENT_ID || '',
     clientSecret: process.env.GOOGLE_CLIENT_SECRET || process.env.GOOGLE_OAUTH_CLIENT_SECRET || '',
-    callbackURL: process.env.GOOGLE_CALLBACK_URL || '/api/auth/google/callback'
+    callbackURL: process.env.GOOGLE_CALLBACK_URL || `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co/api/auth/google/callback`
   }, async (accessToken: string, refreshToken: string, profile: any, done: any) => {
     try {
       // Check if user exists
