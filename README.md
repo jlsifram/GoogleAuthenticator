@@ -41,13 +41,21 @@ npm install
 ```
 
 3. **Configurar variables de entorno**
-Crear archivo `.env` en la raíz:
+
+Copia el archivo de ejemplo:
+```bash
+cp .env.example .env
+```
+
+Luego edita el archivo `.env` con tus credenciales reales:
 ```env
-GOOGLE_CLIENT_ID=tu_google_client_id
-GOOGLE_CLIENT_SECRET=tu_google_client_secret
-SESSION_SECRET=una_clave_secreta_aleatoria
+GOOGLE_CLIENT_ID=tu_google_client_id_real
+GOOGLE_CLIENT_SECRET=tu_google_client_secret_real
+SESSION_SECRET=una_clave_secreta_aleatoria_muy_larga
 NODE_ENV=development
 ```
+
+**⚠️ IMPORTANTE**: El archivo `.env` contiene información sensible y NO debe subirse a GitHub (ya está en .gitignore).
 
 4. **Configurar Google OAuth**
 - Ve a [Google Cloud Console](https://console.cloud.google.com)
