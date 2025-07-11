@@ -57,15 +57,30 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // Serve the app on a configurable port with Windows compatibility
+  const port = parseInt(process.env.PORT || "3000", 10);
+  
+  const startServer = (portToTry: number) => {
+    server.listen(portToTry, "localhost", () => {
+      log(`serving on port ${portToTry}`);
+      log(`Open your browser at http://localhost:${portToTry}`);
+    });
+    
+    server.on('error', (err: any) => {
+      if (err.code === 'EADDRINUSE') {
+        console.log(`Port ${portToTry} is already in use. Trying port ${portToTry + 1}...`);
+        startServer(portToTry + 1);
+      } else if (err.code === 'ENOTSUP') {
+        console.log(`Port binding not supported. Trying different approach...`);
+        server.listen(portToTry, () => {
+          log(`serving on port ${portToTry}`);
+          log(`Open your browser at http://localhost:${portToTry}`);
+        });
+      } else {
+        console.error('Server error:', err);
+      }
+    });
+  };
+  
+  startServer(port);
 })();

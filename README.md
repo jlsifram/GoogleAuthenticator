@@ -68,8 +68,8 @@ NODE_ENV=development
 - Activa la Google+ API
 - Crea credenciales OAuth 2.0
 - Agrega URLs autorizadas:
-  - Origen: `http://localhost:5000`
-  - Callback: `http://localhost:5000/api/auth/google/callback`
+  - Origen: `http://localhost:3000`
+  - Callback: `http://localhost:3000/api/auth/google/callback`
 
 5. **Ejecutar la aplicación**
 
@@ -88,7 +88,7 @@ O usando cross-env (funciona en todos los sistemas):
 npx cross-env NODE_ENV=development tsx server/index.ts
 ```
 
-La aplicación estará disponible en `http://localhost:5000`
+La aplicación estará disponible en `http://localhost:3000`
 
 ## Estructura del Proyecto
 
