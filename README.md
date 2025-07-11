@@ -59,8 +59,20 @@ NODE_ENV=development
   - Callback: `http://localhost:5000/api/auth/google/callback`
 
 5. **Ejecutar la aplicación**
+
+En Windows:
+```bash
+npm run dev:win
+```
+
+En Linux/macOS:
 ```bash
 npm run dev
+```
+
+O usando cross-env (funciona en todos los sistemas):
+```bash
+npx cross-env NODE_ENV=development tsx server/index.ts
 ```
 
 La aplicación estará disponible en `http://localhost:5000`
